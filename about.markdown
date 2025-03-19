@@ -32,3 +32,13 @@ At heart, I’m a geek with a deep admiration for Iron Man. His ability to think
 <p style='text-align: justify;'>
 Now, I’m on the lookout for opportunities where I can put my skills to work, continue expanding my knowledge, and take on exciting new challenges. Let’s build something incredible together!
 </p>
+
+## My Skills
+
+### Technical Skills
+
+{% include skills_technical.md %}
+
+### Soft Skills
+
+{% include skills_soft.md %}
