@@ -3,13 +3,13 @@ layout: archive
 title: About
 permalink: /about/
 ---
-<h2 style='text-align: center;'>
-🚀 Innovator | Problem-Solver | Automation Enthusiast
-</h2>
-
 <h3 style='text-align: center;'>
-Turning complex challenges into seamless solutions. Passionate about tech, automation, and always learning. Let’s build something incredible together!
+Innovator | Problem-Solver | Automation Enthusiast
 </h3>
+
+<h4 style='text-align: center;'>
+Turning complex challenges into seamless solutions. Passionate about tech, automation, and always learning. Let’s build something incredible together!
+</h4>
 
 <p style='text-align: justify;'>
 My passion for technology ignited at 13 when I received a computer as an 8th-grade graduation gift. My dad would bring home copies of Visual Basic 5 and 6, along with training books, and I dove in headfirst. Watching lines of code come to life as functional software felt like magic—and I was hooked. Since then, my hunger for learning has driven me to pick up new languages and technologies at lightning speed, often mastering them in under a month.
