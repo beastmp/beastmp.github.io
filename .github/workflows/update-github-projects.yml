@@ -28,7 +28,7 @@ jobs:
         run: pip install requests pyyaml
         
       - name: Update projects data
-        run: python .github/scripts/update_github_projects_by_user.py  # Using the simpler script
+        run: python .github/scripts/update_github_projects.py
           
       - name: Commit changes
         run: |
