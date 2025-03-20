@@ -29,7 +29,7 @@ url: "https://beastmp.github.io" # the base hostname & protocol for your site, e
 github_username:  beastmp
 search: true
 # Build settings
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+remote_theme: "mmistakes/minimal-mistakes"
 plugins:
   - jekyll-remote-theme
   - jekyll-paginate
