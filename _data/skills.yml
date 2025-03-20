@@ -1,0 +1,122 @@
+technical:
+  - title: DevOps
+    level: Advanced
+  - title: Automation
+    level: Expert
+  - title: Continuous Integration and Continuous Delivery (CI/CD)
+    level: Expert
+  - title: Infrastructure As Code (IaC)
+    level: Beginner
+  - title: Amazon Web Services (AWS)
+    level: Beginner
+  - title: Terraform
+    level: Beginner
+  - title: Jenkins
+    level: Advanced
+  - title: Ansible
+    level: Advanced
+  - title: Powershell
+    level: Expert
+  - title: C#
+    level: Expert
+  - title: Transact-SQL (T-SQL)
+    level: Expert
+  - title: T-SQL Stored Procedures
+    level: Expert
+  - title: SQL Server Integration Services (SSIS)
+    level: Expert
+  - title: Groovy
+    level: Intermediate
+  - title: YAML
+    level: Intermediate
+  - title: SharePoint
+    level: Expert
+  - title: Nintex
+    level: Expert
+  - title: Workday
+    level: Advanced
+  - title: Workday Integrations
+    level: Advanced
+  - title: Git
+    level: Advanced
+  - title: GitHub
+    level: Advanced
+  - title: JSON
+    level: Advanced
+  - title: REST APIs
+    level: Advanced
+  - title: XML
+    level: Advanced
+  - title: SOAP
+    level: Advanced
+  - title: SSDT
+    level: Expert
+  - title: DACPAC
+    level: Expert
+  - title: .NET Framework
+    level: Advanced
+  - title: Windows Server
+    level: Advanced
+  - title: Microsoft SQL Server
+    level: Advanced
+  - title: Agile Methodologies
+    level: Advanced
+  - title: Scrum
+    level: Advanced
+  - title: Fortify Software Security Center
+    level: Intermediate
+  - title: SonarQube
+    level: Intermediate
+  - title: Active Directory
+    level: Intermediate
+  - title: Docker
+    level: Beginner
+  - title: Kubernetes
+    level: Beginner
+  - title: Amazon EC2
+    level: Intermediate
+  - title: Amazon S3
+    level: Intermediate
+  - title: AWS Identity and Access Management
+    level: Intermediate
+  - title: Amazon Elastic Container Registry
+    level: Beginner
+  - title: Amazon EKS
+    level: Beginner
+  - title: Amazon DynamoDB
+    level: Beginner
+  - title: AWS CodePipeline
+    level: Beginner
+  - title: AWS CodeBuild
+    level: Beginner
+  - title: Google Cloud Platform (GCP)
+    level: Beginner
+  - title: Microsoft Azure
+    level: Beginner
+  - title: Azure DevOps
+    level: Intermediate
+  - title: BMC Helix ITSM
+    level: Intermediate
+  - title: BMC Remedy Ticketing System
+    level: Intermediate
+  - title: Artificial Intelligence (AI)
+    level: Beginner
+  - title: Amazon Bedrock
+    level: Beginner
+  - title: Anthropic Claude
+    level: Beginner
+  - title: OpenAI
+    level: Beginner
+  - title: Lawson HRIS
+    level: Intermediate
+  - title: COBOL
+    level: Beginner
+  - title: Igloo
+    level: Intermediate
+  
+
+soft:
+  - title: Writing
+    level: Intermediate
+  - title: Leadership
+    level: Intermediate
