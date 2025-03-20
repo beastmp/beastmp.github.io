@@ -1,8 +1,8 @@
 ---
-layout: categories_work
-title: My Work
+layout: categories_article
+title: My Writing
 author_profile: true
 author: Leigh Stewardson
 ---
 
-My career has span many industries and roles. Below you will find my work organized by category. Reach out if you'de like to work together or would like to talk about one of my projects.
+I love to write but don't always get the time. Below are my articles organized by category. Reach out to me if your interested in any of these topics and want to chat.
