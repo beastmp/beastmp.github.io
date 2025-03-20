@@ -1,12 +1,15 @@
 Michael Palmer:
-  name        : "Leigh Stewardson"
+  name        : "Michael Palmer"
   bio         : "Let's talk about code! Reach out via the links below."
-  avatar      : "https://placehold.co/400"
+  avatar      : "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aXJvbiUyMG1hbnxlbnwwfHwwfHx8MA%3D%3D"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:name@email.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://www.mywebsite.com"
+      url: "mailto:beastmpdevelopment@gmail.com"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/michael-w-palmer/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/beastmp/"
  
