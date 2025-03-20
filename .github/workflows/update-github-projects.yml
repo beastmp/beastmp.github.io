@@ -6,11 +6,18 @@ on:
     - cron: '0 0 * * 0'  # Run weekly on Sundays
   workflow_dispatch:  # Allow manual triggering
 
+# Add permissions section
+permissions:
+  contents: write
+
 jobs:
   update-projects:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}  # Use your PAT for checkout
       
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -18,12 +25,10 @@ jobs:
           python-version: '3.x'
           
       - name: Install dependencies
-        run: pip install PyGithub pyyaml
+        run: pip install requests pyyaml
         
       - name: Update projects data
-        run: python .github/scripts/update_github_projects.py
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+        run: python .github/scripts/update_github_projects_by_user.py  # Using the simpler script
           
       - name: Commit changes
         run: |
@@ -31,4 +36,9 @@ jobs:
           git config --local user.name "GitHub Action"
           git add _data/github_projects.yml
           git commit -m "Update GitHub projects data" || echo "No changes to commit"
-          git push origin ${{ github.ref }}
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          branch: ${{ github.ref_name }}
