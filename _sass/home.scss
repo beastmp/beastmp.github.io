@@ -2,4 +2,25 @@ img.avatar {
     float: left;
     width: 30%;
     margin: 0 1em 2em 0;
+    border: 3px solid #6A0C0B;
+    border-radius: 5px;
+}
+
+.home__intro {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.5em;
+    color: #4B0908;
+    margin-bottom: 1.5em;
+}
+
+.home__section-heading {
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    color: #6A0C0B;
+    border-bottom: 2px solid #FBCA03;
+    padding-bottom: 0.3em;
+}
+
+.home__content {
+    font-family: "Texturina", serif;
 }

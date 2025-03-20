@@ -10,6 +10,9 @@
 
 .taxonomy__section h3 {
     margin-top: 0;
+    font-family: "Caveat", cursive;
+    font-size: 1.5em;
+    font-weight: 600;
 }
 
 .taxonomy__index a {
@@ -18,4 +21,12 @@
     border-radius: 5px;
     background-color: #FBCA03;
     color: #4B0908;
+    font-family: "Texturina", serif;
+    font-weight: 500;
+}
+
+.taxonomy__count {
+    font-family: "Caveat", cursive;
+    font-size: 1.1em;
+    color: #B97D10;
 }

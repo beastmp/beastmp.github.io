@@ -1,10 +1,16 @@
 .page__footer {
     margin-top: 0;
     background-color: #6A0C0B;
+    font-family: "Texturina", serif;
 }
 
 .page__footer a,
 .page__footer a:visited {
     color: #FBCA03;
     font-weight: 700;
+}
+
+.page__footer-copyright {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.1em;
 }

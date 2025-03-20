@@ -3,6 +3,20 @@
 }
 
 .page__hero--overlay .wrapper {
-    background-color: #0000007a;
+    background-color: rgba(75, 9, 8, 0.7);
     padding: 1em;
+}
+
+.page__hero--overlay .page__title {
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+}
+
+.page__hero--overlay .page__meta {
+    font-family: "Texturina", serif;
+}
+
+.page__hero--overlay .page__lead {
+    font-family: "Caveat", cursive;
+    font-size: 1.3em;
 }
