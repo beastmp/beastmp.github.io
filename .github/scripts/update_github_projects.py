@@ -9,7 +9,7 @@ from pathlib import Path
 
 # Configuration
 POSTS_DIR = "_posts"
-README_FILENAMES = ["README.md", "README.markdown", "readme.md", "Readme.md"]
+README_FILENAMES = ["portfolio.md", "portfolio.markdown", "PORTFOLIO.md", "PORTFOLIO.markdown", "Portfolio.md", "Portfolio.markdown"]
 
 # Initialize GitHub client
 token = os.environ.get("GITHUB_TOKEN")
@@ -63,7 +63,7 @@ for repo in repos:
                 
         # If no README is found, create a minimal one
         if not readme_content:
-            print(f"No README found for {repo_name}, creating minimal content")
+            print(f"No Portfolio page found for {repo_name}, creating minimal content")
             readme_content = f"# {repo_name.replace('-', ' ').replace('_', ' ').title()}\n\nThis repository contains a {repo.language or 'software'} project."
         
         # Generate Jekyll frontmatter
