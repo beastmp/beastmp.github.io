@@ -4,6 +4,67 @@ layout: archive
 
 {{ content }}
 
+<!-- GitHub Projects Section -->
+<h2 class="archive__subtitle">My GitHub Projects</h2>
+
+<ul class="taxonomy__index">
+    {% assign project_languages = "" | split: "" %}
+    {% for project in site.data.github_projects %}
+        {% unless project_languages contains project.language %}
+            {% assign project_languages = project_languages | push: project.language %}
+        {% endunless %}
+    {% endfor %}
+    
+    {% assign sorted_languages = project_languages | sort %}
+    {% for language in sorted_languages %}
+        <li>
+            <a href="#github-{{ language | slugify }}">
+                <strong>{{ language }}</strong>
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% assign entries_layout = page.entries_layout | default: 'grid' %}
+{% for language in sorted_languages %}
+    <section id="github-{{ language | slugify | downcase }}" class="taxonomy__section">
+        <h2 class="archive__subtitle">{{ language }} Projects</h2>
+        <div class="entries-{{ entries_layout }}">
+            {% for project in site.data.github_projects %}
+                {% if project.language == language %}
+                    <div class="grid__item">
+                        <article class="archive__item">
+                            <h2 class="archive__item-title">
+                                <a href="{{ project.url }}" target="_blank">{{ project.title }}</a>
+                            </h2>
+                            {% if project.teaser_image %}
+                            <div class="archive__item-teaser">
+                                <img src="{{ project.teaser_image }}" alt="{{ project.name }}">
+                            </div>
+                            {% endif %}
+                            <div class="archive__item-excerpt">
+                                <p>{{ project.description }}</p>
+                                <p>
+                                    <small>
+                                        <i class="fas fa-star"></i> {{ project.stars }} 
+                                        <i class="fas fa-code-branch"></i> {{ project.forks }}
+                                        {% if project.topics.size > 0 %}
+                                            <br>Topics: {{ project.topics | join: ", " }}
+                                        {% endif %}
+                                        <br>Last updated: {{ project.updated_at }}
+                                    </small>
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+{% endfor %}
+
+<!-- Original Blog Posts Section -->
+<h2 class="archive__subtitle">My Project Posts</h2>
 
 <ul class="taxonomy__index">
     {% assign sorted_tags = site.tags | sort %}
@@ -12,21 +73,20 @@ layout: archive
     {% if cat_tags != empty %}
     <li>
         <a href="#{{ tag[0] | slugify }}">
-            <strong>{{ tag[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
+            <strong>{{ tag[0] }}</strong> <span class="taxonomy__count">{{ cat_tags.size }}</span>
         </a>
     </li>
     {% endif %}
     {% endfor %}
 </ul>
 
-{% assign entries_layout = page.entries_layout | default: 'grid' %}
 {% for tag in sorted_tags %}
 {% assign cat_tags = tag[1] | where: "categories", "work" | sort %}
 {% if cat_tags != empty %}
 <section id="{{ tag[0] | slugify | downcase }}" class="taxonomy__section">
     <h2 class="archive__subtitle">{{ tag[0] }}</h2>
     <div class="entries-{{ entries_layout }}">
-        {% for post in tag.last %}
+        {% for post in cat_tags %}
         {% include archive-single.html type=entries_layout %}
         {% endfor %}
     </div>
