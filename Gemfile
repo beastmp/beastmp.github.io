@@ -9,14 +9,12 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 4.4.1"
 gem "minimal-mistakes-jekyll"
-gem "jekyll-remote-theme"
 group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-sitemap"
   gem "jekyll-gist"
   gem "jekyll-feed"
   gem "jemoji"
-  gem "jekyll-include-cache"
   gem "jekyll-algolia"
 end
 

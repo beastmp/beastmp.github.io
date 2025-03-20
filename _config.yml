@@ -29,15 +29,13 @@ url: "https://beastmp.github.io" # the base hostname & protocol for your site, e
 github_username:  beastmp
 search: true
 # Build settings
-remote_theme: "mmistakes/minimal-mistakes"
+theme: minimal-mistakes-jekyll
 plugins:
-  - jekyll-remote-theme
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jemoji
-  - jekyll-include-cache
 
 # Exclude from processing.
 # The following items will not be processed, by default.
