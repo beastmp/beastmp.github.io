@@ -23,7 +23,7 @@ jobs:
       - name: Update projects data
         run: python .github/scripts/update_github_projects_by_user.py
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           
       - name: Commit changes
         run: |
