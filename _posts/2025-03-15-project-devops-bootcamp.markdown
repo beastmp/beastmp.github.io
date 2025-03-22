@@ -12,7 +12,7 @@ header:
   overlay_image: https://opengraph.githubassets.com/1/beastmp/msc-devops-bootcamp-infrastructure
   teaser: https://opengraph.githubassets.com/1/beastmp/msc-devops-bootcamp-infrastructure
   caption: "Project Group: devops-bootcamp"
-description: A Devops Bootcamp project consisting of 4 repositories: msc-devops-bootcamp-infrastructure, msc-devops-bootcamp-kubernetes, msc-devops-bootcamp-backend and 1 more
+description: "A Devops Bootcamp project consisting of 4 repositories: msc-devops-bootcamp-infrastructure, msc-devops-bootcamp-kubernetes, msc-devops-bootcamp-backend and 1 more"
 ---
 
 # Devops Bootcamp
