@@ -248,9 +248,9 @@ for repo in repos:
             project_groups[project_name] = project_groups[project_name] or {"repos": [], "display_name": project_display_name}
             project_groups[project_name]["repos"].append(repo)
             print(f"➕ Adding {repo.name} to project group '{project_display_name}'")
-        else:
-            # Process as a regular standalone repository
-            process_repo(repo)
+            
+        # Process all repositories individually, whether they're in a group or not
+        process_repo(repo)
             
     except Exception as e:
         failed_posts.append(repo.name)
@@ -295,27 +295,19 @@ for project_name, group_data in project_groups.items():
         # Use first repo with a README for content or create minimal content
         project_content = f"# {clean_repo_name_for_display(display_name)}\n\nThis project consists of multiple repositories:\n\n"
         
-        # Get combined content
+        # Get combined content - with links to individual posts
         for repo in repos_in_group:
             repo_name = repo.name
             repo_url = repo.html_url
             
-            # Try to find a README
-            readme_content = None
-            for readme_file in README_FILENAMES:
-                try:
-                    readme = repo.get_contents(readme_file)
-                    if readme:
-                        readme_content = base64.b64decode(readme.content).decode("utf-8")
-                        # Strip frontmatter if present
-                        if readme_content and "---" in readme_content:
-                            readme_content = re.sub(r"---\n.*?---\n", "", readme_content, 1, re.DOTALL)
-                        break
-                except Exception:
-                    continue
+            # Calculate the individual post URL for this repo
+            repo_creation_date = repo.created_at.strftime("%Y-%m-%d")
+            safe_repo_name = repo_name.lower().replace(' ', '-')
+            safe_repo_name = re.sub(r'[^a-z0-9-]', '', safe_repo_name)
+            post_url = f"/work/{repo_creation_date}-github-{safe_repo_name}/"  # Jekyll post URL pattern
             
-            # Add repo summary to project content
-            project_content += f"## [{clean_repo_name_for_display(repo_name)}]({repo_url})\n\n"
+            # Add repo summary to project content - now linking to individual post
+            project_content += f"## [{clean_repo_name_for_display(repo_name)}]({post_url})\n\n"
             project_content += f"Language: {repo.language or 'Not specified'}\n\n"
             if repo.description:
                 project_content += f"{repo.description}\n\n"
@@ -327,7 +319,8 @@ for project_name, group_data in project_groups.items():
                 if first_para:
                     project_content += f"{first_para.group(1).strip()}\n\n"
             
-            project_content += f"[View Repository]({repo_url})\n\n"
+            # Keep the direct GitHub repo link
+            project_content += f"[View on GitHub]({repo_url})\n\n"
             project_content += "---\n\n"
         
         # Get a nice title for the project - using the clean display name function
