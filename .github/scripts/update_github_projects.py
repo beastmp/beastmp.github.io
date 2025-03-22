@@ -105,6 +105,118 @@ def get_repository_images(repo, username, repo_name, topics, readme_content):
     
     return header_image, teaser_image
 
+def process_repo(repo):
+    """Process a single repository (moved to a function for clarity)"""
+    try:
+        repo_name = repo.name
+        repo_url = repo.html_url
+        
+        print(f"Processing repository: {repo_name}")
+        
+        # Try each possible README filename
+        readme_content = None
+        readme_path = None
+        
+        for readme_file in README_FILENAMES:
+            try:
+                readme = repo.get_contents(readme_file)
+                if (readme):
+                    readme_content = base64.b64decode(readme.content).decode("utf-8")
+                    readme_path = readme_file
+                    break
+            except Exception:
+                continue
+                
+        # If no README is found, create a minimal one
+        if not readme_content:
+            print(f"No Portfolio page found for {repo_name}, creating minimal content")
+            readme_content = f"# {clean_repo_name_for_display(repo_name)}\n\nThis repository contains a {repo.language or 'software'} project."
+        
+        # Generate Jekyll frontmatter
+        creation_date = repo.created_at.strftime("%Y-%m-%d")
+        post_title = clean_repo_name_for_display(repo_name)
+        description = repo.description or f"A {repo.language or 'software'} project."
+        
+        # Get topics as tags
+        topics = repo.get_topics()
+            
+        # If no topics, use language as tag
+        if not topics and repo.language:
+            topics = [repo.language.lower()]
+        
+        # Format tags as string
+        tags_str = "[" + ", ".join(f'"{topic}"' for topic in topics) + "]"
+        if tags_str == "[]":
+            tags_str = '["github", "project"]'
+            
+        # Get header and teaser images
+        header_image, teaser_image = get_repository_images(repo, username, repo_name, topics, readme_content)
+        
+        # Create Jekyll frontmatter
+        frontmatter = f"""---
+layout: posts
+title:  "{post_title}"
+date:   {creation_date} 12:00:00 +0000
+tags: {tags_str}
+author_profile: true
+author: Michael Palmer
+categories: work
+highlight_home: {str(repo.stargazers_count > 0).lower()}
+tagline: "{description}"
+header:
+  overlay_image: {header_image}
+  teaser: {teaser_image}
+  caption: "GitHub Repository: [{repo_name}]({repo_url})"
+description: "{description}"
+---
+
+"""
+
+        # Add repository link to the content
+        repo_info = f"""
+> This post is automatically generated from my [GitHub repository]({repo_url}).  
+> Last updated: {repo.updated_at.strftime("%Y-%m-%d")}
+
+"""
+
+        # Create the post content
+        post_content = frontmatter + readme_content + "\n\n---\n\n" + repo_info
+        
+        # Sanitize filename - replace spaces and special chars
+        safe_name = repo_name.lower().replace(' ', '-')
+        safe_name = re.sub(r'[^a-z0-9-]', '', safe_name)
+        
+        # Create post filename
+        post_filename = f"{POSTS_DIR}/{creation_date}-github-{safe_name}.markdown"
+        
+        # Check if post exists and has different content
+        update_post = False
+        if os.path.exists(post_filename):
+            with open(post_filename, 'r', encoding='utf-8') as f:
+                existing_content = f.read()
+                if existing_content != post_content:
+                    update_post = True
+        else:
+            update_post = True
+            
+        # Write to file if it needs updating
+        if update_post:
+            with open(post_filename, 'w', encoding='utf-8') as f:
+                f.write(post_content)
+                
+            if os.path.exists(post_filename) and not os.path.exists(f"{post_filename}.new"):
+                updated_posts.append(repo_name)
+                print(f"✓ Updated post for {repo_name}")
+            else:
+                created_posts.append(repo_name)
+                print(f"✓ Created new post for {repo_name}")
+        else:
+            print(f"- No changes for {repo_name}")
+            
+    except Exception as e:
+        failed_posts.append(repo_name)
+        print(f"✕ Failed to process {repo_name}: {str(e)}")
+
 # First pass: collect repositories and group them by project
 for repo in repos:
     try:
@@ -295,118 +407,6 @@ description: "{description}"
     except Exception as e:
         failed_posts.append(f"Project group {project_name}")
         print(f"✕ Failed to process project group {project_name}: {str(e)}")
-
-def process_repo(repo):
-    """Process a single repository (moved to a function for clarity)"""
-    try:
-        repo_name = repo.name
-        repo_url = repo.html_url
-        
-        print(f"Processing repository: {repo_name}")
-        
-        # Try each possible README filename
-        readme_content = None
-        readme_path = None
-        
-        for readme_file in README_FILENAMES:
-            try:
-                readme = repo.get_contents(readme_file)
-                if (readme):
-                    readme_content = base64.b64decode(readme.content).decode("utf-8")
-                    readme_path = readme_file
-                    break
-            except Exception:
-                continue
-                
-        # If no README is found, create a minimal one
-        if not readme_content:
-            print(f"No Portfolio page found for {repo_name}, creating minimal content")
-            readme_content = f"# {clean_repo_name_for_display(repo_name)}\n\nThis repository contains a {repo.language or 'software'} project."
-        
-        # Generate Jekyll frontmatter
-        creation_date = repo.created_at.strftime("%Y-%m-%d")
-        post_title = clean_repo_name_for_display(repo_name)
-        description = repo.description or f"A {repo.language or 'software'} project."
-        
-        # Get topics as tags
-        topics = repo.get_topics()
-            
-        # If no topics, use language as tag
-        if not topics and repo.language:
-            topics = [repo.language.lower()]
-        
-        # Format tags as string
-        tags_str = "[" + ", ".join(f'"{topic}"' for topic in topics) + "]"
-        if tags_str == "[]":
-            tags_str = '["github", "project"]'
-            
-        # Get header and teaser images
-        header_image, teaser_image = get_repository_images(repo, username, repo_name, topics, readme_content)
-        
-        # Create Jekyll frontmatter
-        frontmatter = f"""---
-layout: posts
-title:  "{post_title}"
-date:   {creation_date} 12:00:00 +0000
-tags: {tags_str}
-author_profile: true
-author: Michael Palmer
-categories: work
-highlight_home: {str(repo.stargazers_count > 0).lower()}
-tagline: "{description}"
-header:
-  overlay_image: {header_image}
-  teaser: {teaser_image}
-  caption: "GitHub Repository: [{repo_name}]({repo_url})"
-description: "{description}"
----
-
-"""
-
-        # Add repository link to the content
-        repo_info = f"""
-> This post is automatically generated from my [GitHub repository]({repo_url}).  
-> Last updated: {repo.updated_at.strftime("%Y-%m-%d")}
-
-"""
-
-        # Create the post content
-        post_content = frontmatter + readme_content + "\n\n---\n\n" + repo_info
-        
-        # Sanitize filename - replace spaces and special chars
-        safe_name = repo_name.lower().replace(' ', '-')
-        safe_name = re.sub(r'[^a-z0-9-]', '', safe_name)
-        
-        # Create post filename
-        post_filename = f"{POSTS_DIR}/{creation_date}-github-{safe_name}.markdown"
-        
-        # Check if post exists and has different content
-        update_post = False
-        if os.path.exists(post_filename):
-            with open(post_filename, 'r', encoding='utf-8') as f:
-                existing_content = f.read()
-                if existing_content != post_content:
-                    update_post = True
-        else:
-            update_post = True
-            
-        # Write to file if it needs updating
-        if update_post:
-            with open(post_filename, 'w', encoding='utf-8') as f:
-                f.write(post_content)
-                
-            if os.path.exists(post_filename) and not os.path.exists(f"{post_filename}.new"):
-                updated_posts.append(repo_name)
-                print(f"✓ Updated post for {repo_name}")
-            else:
-                created_posts.append(repo_name)
-                print(f"✓ Created new post for {repo_name}")
-        else:
-            print(f"- No changes for {repo_name}")
-            
-    except Exception as e:
-        failed_posts.append(repo_name)
-        print(f"✕ Failed to process {repo_name}: {str(e)}")
 
 # Process individual repos that aren't in project groups
 for repo in repos:
