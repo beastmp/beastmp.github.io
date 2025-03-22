@@ -17,7 +17,7 @@ EXCLUDE_TOPICS = ["no-portfolio", "exclude-portfolio"]
 PROJECT_GROUP_PREFIX = "project-"
 
 # Prefixes to remove from repository display names
-REPO_NAME_PREFIXES_TO_REMOVE = ["template-", "demo-", "sample-", "example-", "project-", "app-", "lib-", "content-"]
+REPO_NAME_PREFIXES_TO_REMOVE = ["msc-", "wdk-", "tlo-", "prv-", "sav-", "pln-", "mpg-", "mgp-", "lws-", "krn-", "ipq-", "inc-", "clz-", "hri-", "aws-", "aap-"]
 
 # Image topics won't work with URLs due to GitHub restrictions
 # Use file-based approach instead (already implemented in the code)
@@ -167,8 +167,8 @@ for project_name, group_data in project_groups.items():
         for repo in repos_in_group:
             all_topics.extend(repo.get_topics())
         
-        # Remove project: topics and deduplicate
-        all_topics = [t for t in all_topics if not t.startswith("project:")]
+        # Remove project topics and deduplicate
+        all_topics = [t for t in all_topics if not t.startswith(PROJECT_GROUP_PREFIX)]
         unique_topics = list(set(all_topics))
         
         # If no topics, use the first repo's language
@@ -416,7 +416,7 @@ for repo in repos:
     topics = repo.get_topics()
     
     # Skip if excluded or part of a project group
-    if any(topic in EXCLUDE_TOPICS for topic in topics) or any(topic.startswith("project:") for topic in topics):
+    if any(topic in EXCLUDE_TOPICS for topic in topics) or any(topic.startswith(PROJECT_GROUP_PREFIX) for topic in topics):
         continue
         
     process_repo(repo)

@@ -12,7 +12,7 @@ layout: archive
     {% if cat_tags != empty %}
     <li>
         <a href="#{{ tag[0] | slugify }}">
-            <strong>{{ tag[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
+            <strong>{{ tag[0] }}</strong> <span class="taxonomy__count">{{ cat_tags.size }}</span>
         </a>
     </li>
     {% endif %}
@@ -26,7 +26,7 @@ layout: archive
 <section id="{{ tag[0] | slugify | downcase }}" class="taxonomy__section">
     <h2 class="archive__subtitle">{{ tag[0] }}</h2>
     <div class="entries-{{ entries_layout }}">
-        {% for post in tag.last %}
+        {% for post in cat_tags %}
         {% include archive-single.html type=entries_layout %}
         {% endfor %}
     </div>
