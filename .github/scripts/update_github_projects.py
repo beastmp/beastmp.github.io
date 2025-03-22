@@ -306,6 +306,17 @@ for project_name, group_data in project_groups.items():
             safe_repo_name = re.sub(r'[^a-z0-9-]', '', safe_repo_name)
             post_url = f"/work/{repo_creation_date}-github-{safe_repo_name}/"  # Jekyll post URL pattern
             
+            # Try to get README content for this repo
+            repo_readme_content = None
+            for readme_file in README_FILENAMES:
+                try:
+                    readme = repo.get_contents(readme_file)
+                    if readme:
+                        repo_readme_content = base64.b64decode(readme.content).decode("utf-8")
+                        break
+                except Exception:
+                    continue
+            
             # Add repo summary to project content - now linking to individual post
             project_content += f"## [{clean_repo_name_for_display(repo_name)}]({post_url})\n\n"
             project_content += f"Language: {repo.language or 'Not specified'}\n\n"
@@ -313,9 +324,9 @@ for project_name, group_data in project_groups.items():
                 project_content += f"{repo.description}\n\n"
                 
             # Add condensed README content if available
-            if readme_content:
+            if repo_readme_content:
                 # Extract first paragraph after any headings
-                first_para = re.search(r"(?:^|\n)(?!#)(.+?)(?=\n\n|\n#|$)", readme_content)
+                first_para = re.search(r"(?:^|\n)(?!#)(.+?)(?=\n\n|\n#|$)", repo_readme_content)
                 if first_para:
                     project_content += f"{first_para.group(1).strip()}\n\n"
             
