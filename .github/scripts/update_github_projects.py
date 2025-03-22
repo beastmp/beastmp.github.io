@@ -16,6 +16,9 @@ EXCLUDE_TOPICS = ["no-portfolio", "exclude-portfolio"]
 # Project grouping topic format: "project-{groupname}"
 PROJECT_GROUP_PREFIX = "project-"
 
+# Prefixes to remove from repository display names
+REPO_NAME_PREFIXES_TO_REMOVE = ["template-", "demo-", "sample-", "example-", "project-", "app-", "lib-", "content-"]
+
 # Image topics won't work with URLs due to GitHub restrictions
 # Use file-based approach instead (already implemented in the code)
 HEADER_IMAGE_FILENAMES = ["portfolio-header.jpg", "portfolio-header.png", "header.jpg", "header.png"]
@@ -34,6 +37,15 @@ updated_posts = []
 failed_posts = []
 excluded_posts = []
 project_groups = defaultdict(dict)
+
+# Helper function to clean repository names for display
+def clean_repo_name_for_display(name):
+    """Remove prefixes and convert to title case with spaces"""
+    display_name = name
+    for prefix in REPO_NAME_PREFIXES_TO_REMOVE:
+        if display_name.lower().startswith(prefix):
+            display_name = display_name[len(prefix):]
+    return display_name.replace('-', ' ').replace('_', ' ').title()
 
 # Handle user information and repository access more robustly
 try:
@@ -169,7 +181,7 @@ for project_name, group_data in project_groups.items():
             tags_str = '["github", "project"]'
             
         # Use first repo with a README for content or create minimal content
-        project_content = f"# {display_name.replace('-', ' ').title()}\n\nThis project consists of multiple repositories:\n\n"
+        project_content = f"# {clean_repo_name_for_display(display_name)}\n\nThis project consists of multiple repositories:\n\n"
         
         # Get combined content
         for repo in repos_in_group:
@@ -191,7 +203,7 @@ for project_name, group_data in project_groups.items():
                     continue
             
             # Add repo summary to project content
-            project_content += f"## [{repo_name}]({repo_url})\n\n"
+            project_content += f"## [{clean_repo_name_for_display(repo_name)}]({repo_url})\n\n"
             project_content += f"Language: {repo.language or 'Not specified'}\n\n"
             if repo.description:
                 project_content += f"{repo.description}\n\n"
@@ -206,9 +218,8 @@ for project_name, group_data in project_groups.items():
             project_content += f"[View Repository]({repo_url})\n\n"
             project_content += "---\n\n"
         
-        # Get a nice title for the project - preserve original hyphens for spacing
-        # This is the key change - replace hyphens with spaces in the display name, not the project name
-        post_title = display_name.replace('-', ' ').replace('_', ' ').title()
+        # Get a nice title for the project - using the clean display name function
+        post_title = clean_repo_name_for_display(display_name)
         
         # Create a description from the first repo
         description = (f"A {post_title} project consisting of {len(repos_in_group)} repositories: " + 
@@ -310,11 +321,11 @@ def process_repo(repo):
         # If no README is found, create a minimal one
         if not readme_content:
             print(f"No Portfolio page found for {repo_name}, creating minimal content")
-            readme_content = f"# {repo_name.replace('-', ' ').replace('_', ' ').title()}\n\nThis repository contains a {repo.language or 'software'} project."
+            readme_content = f"# {clean_repo_name_for_display(repo_name)}\n\nThis repository contains a {repo.language or 'software'} project."
         
         # Generate Jekyll frontmatter
         creation_date = repo.created_at.strftime("%Y-%m-%d")
-        post_title = repo_name.replace('-', ' ').replace('_', ' ').title()
+        post_title = clean_repo_name_for_display(repo_name)
         description = repo.description or f"A {repo.language or 'software'} project."
         
         # Get topics as tags
