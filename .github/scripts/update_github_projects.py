@@ -345,7 +345,7 @@ for project_name, group_data in project_groups.items():
         # Get images - prefer using first repo's images
         first_repo_topics = first_repo.get_topics()
         header_image, teaser_image = get_repository_images(
-            first_repo, username, first_repo.name, first_repo_topics, readme_content)
+            first_repo, username, first_repo.name, first_repo_topics, repo_readme_content)
         
         # Mark as highlight if any repo in group has stars
         has_stars = any(repo.stargazers_count > 0 for repo in repos_in_group)
