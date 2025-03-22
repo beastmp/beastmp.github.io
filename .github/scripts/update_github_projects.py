@@ -237,7 +237,7 @@ for project_name, group_data in project_groups.items():
         # Create Jekyll frontmatter
         frontmatter = f"""---
 layout: posts
-title:  "{post_title} (Project Group)"
+title:  "{post_title}"
 date:   {creation_date} 12:00:00 +0000
 tags: {tags_str}
 author_profile: true
@@ -248,8 +248,8 @@ tagline: "{description}"
 header:
   overlay_image: {header_image}
   teaser: {teaser_image}
-  caption: "Project Group: {project_name}"
-description: {description}
+  caption: "{project_name}"
+description: "{description}"
 ---
 
 """
@@ -358,7 +358,7 @@ header:
   overlay_image: {header_image}
   teaser: {teaser_image}
   caption: "GitHub Repository: [{repo_name}]({repo_url})"
-description: {description}
+description: "{description}"
 ---
 
 """
