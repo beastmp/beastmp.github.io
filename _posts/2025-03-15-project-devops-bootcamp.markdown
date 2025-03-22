@@ -2,7 +2,7 @@
 layout: posts
 title:  "Devops Bootcamp"
 date:   2025-03-15 12:00:00 +0000
-tags: ["devops", "nodejs", "terraform", "kubernetes", "javascript", "react"]
+tags: ["terraform", "kubernetes", "react", "javascript", "devops", "nodejs"]
 author_profile: true
 author: Michael Palmer
 categories: work
@@ -19,43 +19,43 @@ description: "A Devops Bootcamp project consisting of 4 repositories: msc-devops
 
 This project consists of multiple repositories:
 
-## [Devops Bootcamp Infrastructure](https://github.com/beastmp/msc-devops-bootcamp-infrastructure)
+## [Devops Bootcamp Infrastructure](/work/2025-03-15-github-msc-devops-bootcamp-infrastructure/)
 
 Language: HCL
 
 > This repository contains the infrastructure code for the CloudMart e-commerce platform, developed as part of the DevOps Bootcamp project.
 
-[View Repository](https://github.com/beastmp/msc-devops-bootcamp-infrastructure)
+[View on GitHub](https://github.com/beastmp/msc-devops-bootcamp-infrastructure)
 
 ---
 
-## [Devops Bootcamp Kubernetes](https://github.com/beastmp/msc-devops-bootcamp-kubernetes)
+## [Devops Bootcamp Kubernetes](/work/2025-03-15-github-msc-devops-bootcamp-kubernetes/)
 
 Language: HCL
 
 > This repository contains the Kubernetes deployment configurations for the CloudMart e-commerce platform, developed as part of the DevOps Bootcamp project.
 
-[View Repository](https://github.com/beastmp/msc-devops-bootcamp-kubernetes)
+[View on GitHub](https://github.com/beastmp/msc-devops-bootcamp-kubernetes)
 
 ---
 
-## [Devops Bootcamp Backend](https://github.com/beastmp/msc-devops-bootcamp-backend)
+## [Devops Bootcamp Backend](/work/2025-03-15-github-msc-devops-bootcamp-backend/)
 
 Language: JavaScript
 
 > This repository contains the backend application for the CloudMart e-commerce platform, developed as part of the DevOps Bootcamp project.
 
-[View Repository](https://github.com/beastmp/msc-devops-bootcamp-backend)
+[View on GitHub](https://github.com/beastmp/msc-devops-bootcamp-backend)
 
 ---
 
-## [Devops Bootcamp Frontend](https://github.com/beastmp/msc-devops-bootcamp-frontend)
+## [Devops Bootcamp Frontend](/work/2025-03-15-github-msc-devops-bootcamp-frontend/)
 
 Language: JavaScript
 
 > This repository contains the frontend application for the CloudMart e-commerce platform, developed as part of the DevOps Bootcamp project.
 
-[View Repository](https://github.com/beastmp/msc-devops-bootcamp-frontend)
+[View on GitHub](https://github.com/beastmp/msc-devops-bootcamp-frontend)
 
 ---
 
