@@ -2,7 +2,7 @@
 layout: posts
 title:  "Devops Bootcamp (Project Group)"
 date:   2025-03-15 12:00:00 +0000
-tags: ["javascript", "react", "devops", "terraform", "nodejs", "project-devops-bootcamp", "kubernetes"]
+tags: ["react", "terraform", "devops", "javascript", "kubernetes", "nodejs"]
 author_profile: true
 author: Michael Palmer
 categories: work
@@ -19,7 +19,7 @@ description: A Devops Bootcamp project consisting of 4 repositories: msc-devops-
 
 This project consists of multiple repositories:
 
-## [Msc Devops Bootcamp Infrastructure](https://github.com/beastmp/msc-devops-bootcamp-infrastructure)
+## [Devops Bootcamp Infrastructure](https://github.com/beastmp/msc-devops-bootcamp-infrastructure)
 
 Language: HCL
 
@@ -29,7 +29,7 @@ Language: HCL
 
 ---
 
-## [Msc Devops Bootcamp Kubernetes](https://github.com/beastmp/msc-devops-bootcamp-kubernetes)
+## [Devops Bootcamp Kubernetes](https://github.com/beastmp/msc-devops-bootcamp-kubernetes)
 
 Language: HCL
 
@@ -39,7 +39,7 @@ Language: HCL
 
 ---
 
-## [Msc Devops Bootcamp Backend](https://github.com/beastmp/msc-devops-bootcamp-backend)
+## [Devops Bootcamp Backend](https://github.com/beastmp/msc-devops-bootcamp-backend)
 
 Language: JavaScript
 
@@ -49,7 +49,7 @@ Language: JavaScript
 
 ---
 
-## [Msc Devops Bootcamp Frontend](https://github.com/beastmp/msc-devops-bootcamp-frontend)
+## [Devops Bootcamp Frontend](https://github.com/beastmp/msc-devops-bootcamp-frontend)
 
 Language: JavaScript
 

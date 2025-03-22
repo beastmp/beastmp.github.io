@@ -1,6 +1,6 @@
 ---
 layout: posts
-title:  "Msc Personal Device Setup"
+title:  "Personal Device Setup"
 date:   2025-02-18 12:00:00 +0000
 tags: ["powershell"]
 author_profile: true

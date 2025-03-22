@@ -1,6 +1,6 @@
 ---
 layout: posts
-title:  "Msc Personal File Organization"
+title:  "Personal File Organization"
 date:   2025-02-20 12:00:00 +0000
 tags: ["powershell"]
 author_profile: true
