@@ -2,7 +2,7 @@
 layout: posts
 title:  "Msc Devops Bootcamp Infrastructure"
 date:   2025-03-15 12:00:00 +0000
-tags: ["hcl"]
+tags: ["devops", "terraform", "project-devops-bootcamp"]
 author_profile: true
 author: Michael Palmer
 categories: work
@@ -14,9 +14,6 @@ header:
   caption: "GitHub Repository: [msc-devops-bootcamp-infrastructure](https://github.com/beastmp/msc-devops-bootcamp-infrastructure)"
 description: A HCL project.
 ---
-
-> This post is automatically generated from my [GitHub repository](https://github.com/beastmp/msc-devops-bootcamp-infrastructure).  
-> Last updated: 2025-03-21
 
 # DevOps Bootcamp - Infrastructure
 
@@ -59,3 +56,10 @@ Future plans for this infrastructure project include:
 - Enhancing security with additional compliance controls
 - Supporting blue/green deployment strategies
 - Expanding multi-cloud capabilities with Kubernetes federation
+
+---
+
+
+> This post is automatically generated from my [GitHub repository](https://github.com/beastmp/msc-devops-bootcamp-infrastructure).  
+> Last updated: 2025-03-21
+

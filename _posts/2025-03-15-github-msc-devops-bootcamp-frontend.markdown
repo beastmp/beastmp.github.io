@@ -2,7 +2,7 @@
 layout: posts
 title:  "Msc Devops Bootcamp Frontend"
 date:   2025-03-15 12:00:00 +0000
-tags: ["javascript"]
+tags: ["devops", "project-devops-bootcamp", "react"]
 author_profile: true
 author: Michael Palmer
 categories: work
@@ -14,9 +14,6 @@ header:
   caption: "GitHub Repository: [msc-devops-bootcamp-frontend](https://github.com/beastmp/msc-devops-bootcamp-frontend)"
 description: A JavaScript project.
 ---
-
-> This post is automatically generated from my [GitHub repository](https://github.com/beastmp/msc-devops-bootcamp-frontend).  
-> Last updated: 2025-03-21
 
 # DevOps Bootcamp - Frontend Application
 
@@ -63,3 +60,10 @@ Future enhancements planned for the frontend application include:
 - Adding internationalization support
 - Expanding AI capabilities with personalized shopping experiences
 - Implementing advanced analytics and user behavior tracking
+
+---
+
+
+> This post is automatically generated from my [GitHub repository](https://github.com/beastmp/msc-devops-bootcamp-frontend).  
+> Last updated: 2025-03-21
+

@@ -2,7 +2,7 @@
 layout: posts
 title:  "Msc Devops Bootcamp Kubernetes"
 date:   2025-03-15 12:00:00 +0000
-tags: ["hcl"]
+tags: ["devops", "kubernetes", "project-devops-bootcamp", "terraform"]
 author_profile: true
 author: Michael Palmer
 categories: work
@@ -14,9 +14,6 @@ header:
   caption: "GitHub Repository: [msc-devops-bootcamp-kubernetes](https://github.com/beastmp/msc-devops-bootcamp-kubernetes)"
 description: A HCL project.
 ---
-
-> This post is automatically generated from my [GitHub repository](https://github.com/beastmp/msc-devops-bootcamp-kubernetes).  
-> Last updated: 2025-03-21
 
 # DevOps Bootcamp - Kubernetes
 
@@ -64,3 +61,10 @@ Future enhancements planned for the Kubernetes deployment include:
 - Implementing canary deployments for safer releases
 - Adding Kubernetes operators for custom resource management
 - Exploring GitOps workflows with tools like Flux or ArgoCD
+
+---
+
+
+> This post is automatically generated from my [GitHub repository](https://github.com/beastmp/msc-devops-bootcamp-kubernetes).  
+> Last updated: 2025-03-21
+

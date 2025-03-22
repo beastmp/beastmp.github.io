@@ -2,7 +2,7 @@
 layout: posts
 title:  "Msc Devops Bootcamp Backend"
 date:   2025-03-15 12:00:00 +0000
-tags: ["javascript"]
+tags: ["devops", "javascript", "nodejs", "project-devops-bootcamp"]
 author_profile: true
 author: Michael Palmer
 categories: work
@@ -14,9 +14,6 @@ header:
   caption: "GitHub Repository: [msc-devops-bootcamp-backend](https://github.com/beastmp/msc-devops-bootcamp-backend)"
 description: A JavaScript project.
 ---
-
-> This post is automatically generated from my [GitHub repository](https://github.com/beastmp/msc-devops-bootcamp-backend).  
-> Last updated: 2025-03-21
 
 # DevOps Bootcamp - Backend Application
 
@@ -63,3 +60,10 @@ Future plans for the backend application include:
 - Implementing more comprehensive testing strategies
 - Adding caching layers for improved performance
 - Developing additional microservices for specialized functionality
+
+---
+
+
+> This post is automatically generated from my [GitHub repository](https://github.com/beastmp/msc-devops-bootcamp-backend).  
+> Last updated: 2025-03-21
+
