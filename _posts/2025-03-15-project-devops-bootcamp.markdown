@@ -2,7 +2,7 @@
 layout: posts
 title:  "Devops Bootcamp"
 date:   2025-03-15 12:00:00 +0000
-tags: ["terraform", "kubernetes", "react", "javascript", "devops", "nodejs"]
+tags: ["react", "nodejs", "terraform", "javascript", "kubernetes", "devops"]
 author_profile: true
 author: Michael Palmer
 categories: work
@@ -19,7 +19,7 @@ description: "A Devops Bootcamp project consisting of 4 repositories: msc-devops
 
 This project consists of multiple repositories:
 
-## [Devops Bootcamp Infrastructure](/work/2025-03-15-github-msc-devops-bootcamp-infrastructure/)
+## [Devops Bootcamp Infrastructure](/work/2025/03/15/github-msc-devops-bootcamp-infrastructure)
 
 Language: HCL
 
@@ -29,7 +29,7 @@ Language: HCL
 
 ---
 
-## [Devops Bootcamp Kubernetes](/work/2025-03-15-github-msc-devops-bootcamp-kubernetes/)
+## [Devops Bootcamp Kubernetes](/work/2025/03/15/github-msc-devops-bootcamp-kubernetes)
 
 Language: HCL
 
@@ -39,7 +39,7 @@ Language: HCL
 
 ---
 
-## [Devops Bootcamp Backend](/work/2025-03-15-github-msc-devops-bootcamp-backend/)
+## [Devops Bootcamp Backend](/work/2025/03/15/github-msc-devops-bootcamp-backend)
 
 Language: JavaScript
 
@@ -49,7 +49,7 @@ Language: JavaScript
 
 ---
 
-## [Devops Bootcamp Frontend](/work/2025-03-15-github-msc-devops-bootcamp-frontend/)
+## [Devops Bootcamp Frontend](/work/2025/03/15/github-msc-devops-bootcamp-frontend)
 
 Language: JavaScript
 

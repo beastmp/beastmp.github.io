@@ -6,7 +6,7 @@ tags: ["devops", "javascript", "nodejs", "project-devops-bootcamp"]
 author_profile: true
 author: Michael Palmer
 categories: work
-highlight_home: true
+highlight_home: false
 tagline: "A JavaScript project."
 header:
   overlay_image: https://opengraph.githubassets.com/1/beastmp/msc-devops-bootcamp-backend
