@@ -38,6 +38,10 @@ failed_posts = []
 excluded_posts = []
 project_groups = defaultdict(dict)
 
+# First, create a set to track repos that are part of a project group
+# Add this after initializing project_groups
+repos_in_project_groups = set()
+
 # Helper function to clean repository names for display
 def clean_repo_name_for_display(name):
     """Remove prefixes and convert to title case with spaces"""
@@ -152,6 +156,12 @@ def process_repo(repo):
         # Get header and teaser images
         header_image, teaser_image = get_repository_images(repo, username, repo_name, topics, readme_content)
         
+        # Check if this repo is part of a project group
+        is_in_project_group = repo_name in repos_in_project_groups
+        
+        # Only highlight if it has stars AND is not part of a project group
+        highlight_home = (repo.stargazers_count > 0) and not is_in_project_group
+        
         # Create Jekyll frontmatter
         frontmatter = f"""---
 layout: posts
@@ -161,7 +171,7 @@ tags: {tags_str}
 author_profile: true
 author: Michael Palmer
 categories: work
-highlight_home: {str(repo.stargazers_count > 0).lower()}
+highlight_home: {str(highlight_home).lower()}
 tagline: "{description}"
 header:
   overlay_image: {header_image}
@@ -247,6 +257,8 @@ for repo in repos:
             # Store both the raw name (for file paths) and display name (for titles)
             project_groups[project_name] = project_groups[project_name] or {"repos": [], "display_name": project_display_name}
             project_groups[project_name]["repos"].append(repo)
+            # Keep track of repos that are in project groups
+            repos_in_project_groups.add(repo.name)
             print(f"➕ Adding {repo.name} to project group '{project_display_name}'")
             
         # Process all repositories individually, whether they're in a group or not
@@ -300,11 +312,16 @@ for project_name, group_data in project_groups.items():
             repo_name = repo.name
             repo_url = repo.html_url
             
-            # Calculate the individual post URL for this repo
-            repo_creation_date = repo.created_at.strftime("%Y-%m-%d")
+            # Calculate the individual post URL for this repo using the correct Jekyll structure
+            repo_creation_date = repo.created_at
+            year = repo_creation_date.strftime("%Y")
+            month = repo_creation_date.strftime("%m")
+            day = repo_creation_date.strftime("%d")
             safe_repo_name = repo_name.lower().replace(' ', '-')
             safe_repo_name = re.sub(r'[^a-z0-9-]', '', safe_repo_name)
-            post_url = f"/work/{repo_creation_date}-github-{safe_repo_name}/"  # Jekyll post URL pattern
+            
+            # Update the URL format to match Jekyll's date-based permalink style
+            post_url = f"/work/{year}/{month}/{day}/github-{safe_repo_name}"
             
             # Try to get README content for this repo
             repo_readme_content = None
