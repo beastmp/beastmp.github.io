@@ -2,7 +2,7 @@
 layout: posts
 title:  "Biz Tracker Web"
 date:   2025-03-23 12:00:00 +0000
-tags: ["typescript"]
+tags: ["project-biz-tracker", "react", "web"]
 author_profile: true
 author: Michael Palmer
 categories: work

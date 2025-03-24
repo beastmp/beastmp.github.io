@@ -2,7 +2,7 @@
 layout: posts
 title:  "Biz Tracker Api"
 date:   2025-03-23 12:00:00 +0000
-tags: ["javascript"]
+tags: ["api", "nodejs", "project-biz-tracker"]
 author_profile: true
 author: Michael Palmer
 categories: work
