@@ -2,7 +2,7 @@
 layout: posts
 title:  "Biz Tracker"
 date:   2025-03-23 12:00:00 +0000
-tags: ["api", "react", "web", "mobile", "nodejs"]
+tags: ["web", "nodejs", "react", "api", "mobile"]
 author_profile: true
 author: Michael Palmer
 categories: work
@@ -53,4 +53,4 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 
 > This post represents a project group with multiple GitHub repositories.  
-> Last updated: 2025-03-23
+> Last updated: 2025-03-25
