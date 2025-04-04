@@ -2,7 +2,7 @@
 layout: posts
 title:  "Biz Tracker"
 date:   2025-03-23 12:00:00 +0000
-tags: ["react", "nodejs", "mobile", "api", "web"]
+tags: ["api", "nodejs", "mobile", "web", "react"]
 author_profile: true
 author: Michael Palmer
 categories: work
@@ -23,6 +23,8 @@ This project consists of multiple repositories:
 
 Language: JavaScript
 
+A modular, extensible API for business tracking and management.
+
 [View on GitHub](https://github.com/beastmp/biz-tracker-api)
 
 ---
@@ -31,7 +33,7 @@ Language: JavaScript
 
 Language: TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+8. [Extending the Application](#extending-the-application)
 
 [View on GitHub](https://github.com/beastmp/biz-tracker-web)
 
@@ -53,4 +55,4 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 
 > This post represents a project group with multiple GitHub repositories.  
-> Last updated: 2025-03-29
+> Last updated: 2025-04-04
