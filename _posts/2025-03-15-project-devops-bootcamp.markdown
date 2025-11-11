@@ -2,7 +2,7 @@
 layout: posts
 title:  "Devops Bootcamp"
 date:   2025-03-15 12:00:00 +0000
-tags: ["nodejs", "kubernetes", "devops", "terraform", "react", "javascript"]
+tags: ["javascript", "kubernetes", "terraform", "react", "devops", "nodejs"]
 author_profile: true
 author: Michael Palmer
 categories: work
