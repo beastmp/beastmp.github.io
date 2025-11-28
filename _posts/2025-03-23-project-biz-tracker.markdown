@@ -2,7 +2,7 @@
 layout: posts
 title:  "Biz Tracker"
 date:   2025-03-23 12:00:00 +0000
-tags: ["react", "nodejs", "web", "api", "mobile"]
+tags: ["web", "api", "nodejs", "react", "mobile"]
 author_profile: true
 author: Michael Palmer
 categories: work
